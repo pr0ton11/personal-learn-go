@@ -66,4 +66,57 @@ func main() {
 	// 3 Scopes; Public (Uppercase), Package (Lowercase) and Block (Either)
 	// Naming conventions, Pascal and camelCase
 
+	// Boolean
+	var i bool = false // Default value is false (uninitialized)
+	// i = true
+	fmt.Printf("i %v, %T\n", i, i)
+	j := i == true // Tests this value and sets j accordingly as a boolean
+	k := i == false
+	fmt.Printf("j %v, %T\n", j, j)
+	fmt.Printf("k %v, %T\n", k, k)
+
+	// Numeric Types
+	// Signed
+	var l int = 42   // Int is undefinded size, could be any size
+	var m int8 = 8   // 8 Bit integer
+	var n int16 = 16 // 16 Bit integer
+	var o int32 = 32 // 32 Bit integer
+	var p int64 = 64 // 64 Bit integer
+	// Unsigned
+	var q uint = 42
+	var r uint32 = 32
+	var s byte = 8
+
+	// Small calculations
+	// Direct conversions do not work
+	// ! fmt.Println(l - m)
+	fmt.Println(l + int(m))
+	fmt.Println(n - int16(o))
+	fmt.Println(p * int64(q))
+	fmt.Println(r / uint32(s))
+
+	t := 8 // 0100
+	u := 4 // 0010
+	// Boolean operations
+	fmt.Println(t & u)  // 0000
+	fmt.Println(t | u)  // 0110
+	fmt.Println(t ^ u)  // 0110
+	fmt.Println(t &^ u) // 1001
+	fmt.Println(t << 3) // 2^3 * 2^3 = 2^6
+	fmt.Println(t >> 3) // 2^3 / 2^3 = 2^0 = 1
+
+	e = 3.14E10 // Can use E notation
+	fmt.Println(e)
+
+	// Complex numbers
+	var v complex64 = 2i
+	var x complex64 = 3 + 12i
+	fmt.Println(x + v)
+
+	// Text (UTF-8)
+	h = "This is a string"
+	fmt.Println(h)
+	// A string is an array
+	fmt.Println("Letter 3 of the String is " + string(h[2])) // Because h2 is a byte (8) we have to convert it back to string
+
 }

@@ -10,3 +10,4 @@ Basic Knowledge about assigning variables, playing with conversions and typing
 * A lot of rules allow the optimization of code without thinking about it much
 * The scopes of variables only allows Public, Package and Block based definitions
 * Conversions are a bit more difficult when coming from other languages (C#, Python)
+* Go does not include datatypes of higher abstractions in Base packages
