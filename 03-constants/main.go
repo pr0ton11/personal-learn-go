@@ -26,15 +26,18 @@ func main() {
 	)
 
 	// With this we can create Enumerations
+	// Error would be the default value, because Go assigns 0 to undefined int (nil)
 	const (
 		err = iota
 		male
 		female
 	)
-
+	// Define a valid gender
 	var gender int = male
-	var invalidGender int = err
+	// Define an invalid gender
+	var invalidGender int
+	// Check if the results are what was expected
 	fmt.Println(gender == male)
-	fmt.Println(invalidGender == female)
+	fmt.Println(invalidGender == female || invalidGender == male)
 
 }
