@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var gridBuffer [9][9]int // Holds the current grid, passed to the application (default 0)
@@ -27,12 +28,13 @@ func main() {
 	println("-----")
 	outputGrid(gridBuffer)
 	println("-----")
-
+	start := time.Now()
 	// Solving the grid
 	println("Solving Sudoku...")
 	if solveGrid(&gridBuffer) {
 		println("Sudoku was solved sucessfully:")
 		outputGrid(gridBuffer)
+		fmt.Printf("Solving took: %s \n", time.Since(start))
 	} else {
 		println("Sudoku could not be solved")
 		println("Try another one :-(")
