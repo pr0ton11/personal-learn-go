@@ -1,8 +1,8 @@
-# 00-Sudoku
+# 05-Sudoku
 
 ## Goal of this session
 
-I am hacking a tool that solves Sudokus in Go
+I am hacking a tool that solves Sudokus in Go. This was done in one Go (~5 Hours).
 
 ## How does it work?
 
