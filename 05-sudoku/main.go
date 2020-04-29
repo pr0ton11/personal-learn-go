@@ -33,7 +33,9 @@ func main() {
 	println("Solving Sudoku...")
 	if solveGrid(&gridBuffer) {
 		println("Sudoku was solved sucessfully:")
+		println("-----")
 		outputGrid(gridBuffer)
+		println("-----")
 		fmt.Printf("Solving took: %s \n", time.Since(start))
 	} else {
 		println("Sudoku could not be solved")
