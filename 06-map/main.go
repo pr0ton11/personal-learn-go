@@ -1,11 +1,9 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-
+	// Create a map of canton populations
 	cantonPopulations := make(map[string]int)
 	cantonPopulations = map[string]int{
 		"Zurich":                 1538848,
@@ -35,8 +33,41 @@ func main() {
 		"Uri":                    36694,
 		"Appenzell Innerhoden":   16127,
 	}
+	// Create a map of corona cases
+	// Source: Google.ch / 29.04.2020
+	cantonCoronaCases := make(map[string]int)
+	cantonCoronaCases = map[string]int{
+		"Zurich":   3754,
+		"Bern":     1708,
+		"Waadt":    5143,
+		"Aargau":   1052,
+		"Fribourg": 1029,
+	}
+	// Create a map of corona deaths
+	cantonCoronaDeaths := make(map[string]int)
+	cantonCoronaDeaths = map[string]int{
+		"Zurich":   90,
+		"Bern":     55,
+		"Waadt":    266,
+		"Aargau":   17,
+		"Fribourg": 49,
+	}
+	// Calculate percentages
+	cantonInfectionPercentage := make(map[string]float32)
+	cantonDeathPercentage := make(map[string]float32)
+	for k, v := range cantonPopulations {
+		if cantonCoronaCases[k] != 0 {
+			// We have cases
+			cantonInfectionPercentage[k] = calcInfectionRate(v, cantonCoronaCases[k])
+		}
+		if cantonCoronaDeaths[k] != 0 {
+			// We have deaths
+			cantonDeathPercentage[k] = calcDeathRates(v, cantonCoronaDeaths[k])
+		}
+	}
+	fmt.Println(cantonInfectionPercentage)
+	fmt.Println(cantonDeathPercentage)
 
-	fmt.Println(calcPercentages(cantonPopulations))
 }
 
 // Calculate the percentages of each canton
@@ -53,4 +84,14 @@ func calcPercentages(input map[string]int) map[string]float32 {
 		result[k] = percentage
 	}
 	return result
+}
+
+// Calculate Infection rates
+func calcInfectionRate(total int, infected int) float32 {
+	return (float32(infected) / float32(total)) * 100
+}
+
+// Calculate Death rates
+func calcDeathRates(total int, dead int) float32 {
+	return (float32(dead) / float32(total)) * 100
 }
